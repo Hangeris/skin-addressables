@@ -53,26 +53,4 @@ public class SimpleSkinLoader : MonoBehaviour
         loadedSkinData.UnloadAll();
         loadedSkinTypeToLoadedSkinData.Remove(skinCategory);
     }
-    
-    // private void LoadPrefab(SkinSO skinData)
-    // {
-    //     skinData.Prefab.InstantiateAsync(transform).Completed += prefabHandle =>
-    //     {
-    //         if (prefabHandle.Status == AsyncOperationStatus.Succeeded)
-    //         {
-    //             var currentSkinType = skinData.SkinCategory;
-    //             if (loadedSkinTypeToLoadedSkinData.TryGetValue(currentSkinType, out var previousLoadedSkinData))
-    //             {
-    //                 // previousLoadedSkinData.Unload();
-    //                 loadedSkinTypeToLoadedSkinData.Remove(currentSkinType);
-    //             }
-    //             
-    //             // loadedSkinTypeToLoadedSkinData.Add(currentSkinType, new LoadedSkinData(currentSkinType, skinData, prefabHandle.Result));
-    //         }
-    //         else
-    //         {
-    //             Debug.LogError("Failed to instantiate prefab.");
-    //         }
-    //     };
-    // }
 }
