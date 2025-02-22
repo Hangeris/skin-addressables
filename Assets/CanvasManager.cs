@@ -6,10 +6,12 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] TMP_InputField inputField;
     [SerializeField] SimpleSkinLoader skinLoader;
     
-    public void Load()
+    public async void Load()
     {
         var address = inputField.text;
-        skinLoader.LoadSkinSO(address);
+        var loadedSkinData = await skinLoader.LoadSkinSO(address);
+        var instanceGo = await loadedSkinData.SpawnInstance(null);
+        instanceGo.transform.position = Random.onUnitSphere;
     }
 
     public void UnloadBath()

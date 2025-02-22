@@ -1,24 +1,37 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 public class LoadedSkinData
 {
     private SkinCategory skinCategory;
     private SkinSO skinSO;
-    private GameObject instance;
+    private List<GameObject> instances = new();
     
-    public LoadedSkinData(SkinCategory skinCategory, SkinSO skinSO, GameObject instance)
+    public LoadedSkinData(SkinCategory skinCategory, SkinSO skinSO)
     {
         this.skinCategory = skinCategory;
         this.skinSO = skinSO;
-        this.instance = instance;
     }
 
     public SkinSO SkinSO => skinSO;
     public SkinCategory SkinCategory => skinCategory;
     
-    public void Unload()
+    public async UniTask<GameObject> SpawnInstance(Transform parent)
     {
-        Addressables.ReleaseInstance(instance);
+        var instance = await skinSO.Prefab.InstantiateAsync(parent);
+        instances.Add(instance);
+        return instance;
+    }
+
+    public async void UnloadAll()
+    {
+        foreach (var instance in instances)
+        {
+            Addressables.ReleaseInstance(instance);
+        }
+        
+        instances.Clear();
     }
 }

@@ -9,4 +9,9 @@ public class SkinSO : ScriptableObject
 
     public virtual SkinCategory SkinCategory => SkinCategory.None;
     public AssetReferenceGameObject Prefab => prefab;
+    
+    public bool IsSameSkin(SkinSO other)
+    {
+        return other != null && other.Prefab.RuntimeKeyIsValid() && Prefab.RuntimeKeyIsValid() && other.Prefab.RuntimeKey == Prefab.RuntimeKey;
+    }
 }
