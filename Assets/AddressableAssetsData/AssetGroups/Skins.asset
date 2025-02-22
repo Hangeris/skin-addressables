@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Skins
+  m_EditorClassIdentifier: 
+  m_GroupName: Skins
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bfe8e2267538c4241aa0a8c4729faa96
+  m_SerializeEntries:
+  - m_GUID: 01c1d56bad570054d8ab8e58a8d01809
+    m_Address: Assets/Address/Skins/Baths/Lockness
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a2e52f1515978d48b95cc7a21fe3dfa
+    m_Address: Assets/Address/Skins/Baths/Shared1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aa4d24bea8f8754a8972673c2565483
+    m_Address: Assets/Address/Skins/Baths/Apple
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51db099b550f9794aa02037375165637
+    m_Address: Assets/Address/Skins/Wheels/Rim2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61ab8f8f2a9bfc54b9994411e8c7945a
+    m_Address: Assets/Address/Skins/Wheels/Rim5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8165aa8fdc62bf044841232c6cab898e
+    m_Address: Assets/Address/Skins/Wheels/Rim1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83cc986c1ec57134e9ed6fc7ae32f486
+    m_Address: Assets/Address/Skins/Wheels/Rim4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eccdcd545b49284eb080b0e0d0a3771
+    m_Address: Assets/Address/Skins/Baths/Duck
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97aa456c61191ed4fa5c020661a36d0a
+    m_Address: Assets/Address/Skins/Baths/Basic
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c94d42279a6080449b6f5af4527d358d
+    m_Address: Assets/Address/Skins/Wheels/Shared1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d30948ffcddfaee4c8f5838074e31e23
+    m_Address: Assets/Address/Skins/Baths/Gold
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcfd34642b13e2646b41b628b70dcfca
+    m_Address: Assets/Address/Skins/Wheels/Rim3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5b15c487795b074db25736d058f5092
+    m_Address: Assets/Address/Skins/Baths/Banana
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 318caf2921cb90a4e9ea93de368eeae0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 141e6f617745ec249ad821cfefc57b39, type: 2}
+    - {fileID: 11400000, guid: f1838a886601b364eb147f8e25054db0, type: 2}
