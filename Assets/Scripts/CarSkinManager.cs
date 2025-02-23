@@ -4,8 +4,8 @@ public class CarSkinManager : MonoBehaviour
 {
     [SerializeField] IRef<ISkinHandler> bathHandler;
     [SerializeField] IRef<ISkinHandler> wheelHandler;
-    ISkinHandler characterHandler = new CharacterSkinHandler();
-    ISkinHandler parachuteHandler = new ParachuteSkinHandler();
+    // ISkinHandler characterHandler = new CharacterSkinHandler();
+    // ISkinHandler parachuteHandler = new ParachuteSkinHandler();
     
     AddressableAssetManager assetManager;
     
@@ -36,14 +36,36 @@ public class CarSkinManager : MonoBehaviour
             case SkinCategory.Wheels:
                 wheelHandler.Value.ApplySkin(assetManager, skinSO, this);
                 break;
-            case SkinCategory.Character:
-                characterHandler.ApplySkin(assetManager, skinSO, this);
-                break;
-            case SkinCategory.Parachute:
-                parachuteHandler.ApplySkin(assetManager, skinSO, this);
-                break;
+            // case SkinCategory.Character:
+            //     characterHandler.ApplySkin(assetManager, skinSO, this);
+            //     break;
+            // case SkinCategory.Parachute:
+            //     parachuteHandler.ApplySkin(assetManager, skinSO, this);
+            //     break;
             default:
                 Debug.LogError($"{ToString()}.ApplySkin: Invalid skin category '{skinSO.SkinCategory}'");
+                break;
+        }
+    }
+    
+    public void UnloadSkin(SkinCategory skinCategory)
+    {
+        switch (skinCategory)
+        {
+            case SkinCategory.Bath:
+                bathHandler.Value.UnloadSkin(assetManager);
+                break;
+            case SkinCategory.Wheels:
+                wheelHandler.Value.UnloadSkin(assetManager);
+                break;
+            // case SkinCategory.Character:
+            //     characterHandler.UnloadSkin(assetManager);
+            //     break;
+            // case SkinCategory.Parachute:
+            //     parachuteHandler.UnloadSkin(assetManager);
+            //     break;
+            default:
+                Debug.LogError($"{ToString()}.UnloadSkin: Invalid skin category '{skinCategory}'");
                 break;
         }
     }

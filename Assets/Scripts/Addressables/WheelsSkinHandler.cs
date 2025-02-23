@@ -5,7 +5,9 @@ using UnityEngine;
 public class WheelsSkinHandler : MonoBehaviour, ISkinHandler
 {
     [SerializeField] List<Transform> spawnPointsT;
-    
+
+    public SkinSO LoadedSkinSO { get; set; }
+
     public async UniTask ApplySkin(AddressableAssetManager assetManager, SkinSO skinSO, CarSkinManager carSkinManager)
     {
         if (skinSO == null)
@@ -28,5 +30,28 @@ public class WheelsSkinHandler : MonoBehaviour, ISkinHandler
         }
         
         // Apply wheels skin logic
+    }
+
+    public void UnloadSkin(AddressableAssetManager assetManager)
+    {
+        DestroyGOs();
+        
+        if (LoadedSkinSO != null)
+        {
+            assetManager.ReleaseAsset<GameObject>(LoadedSkinSO.RuntimeKey);
+            LoadedSkinSO = null;
+        }
+    }
+    
+    void DestroyGOs()
+    {
+        foreach (var spawnPointT in spawnPointsT)
+        {
+            foreach (Transform childT in spawnPointT)
+            {
+                Destroy(childT.gameObject);
+            }
+        }
+
     }
 }

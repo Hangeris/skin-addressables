@@ -27,10 +27,17 @@ public class CanvasManager : MonoBehaviour
 
     public void UnloadBath()
     {
+        initiliazer.CarSkinManager.UnloadSkin(SkinCategory.Bath);
         // skinLoader.UnloadSkin(SkinCategory.Bath);
     }
     public void UnloadWheel()
     {
+        initiliazer.CarSkinManager.UnloadSkin(SkinCategory.Wheels);
         // skinLoader.UnloadSkin(SkinCategory.Wheels);
+    }
+
+    public void ClearMemory()
+    {
+        initiliazer.AssetManager.TryClearMemory();
     }
 }

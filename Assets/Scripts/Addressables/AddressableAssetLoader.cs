@@ -41,7 +41,7 @@ public class AddressableAssetLoader : IAddressableAssetLoader
 
     public void ClearUnusedAssets()
     {
-        addressableAssetCache.Clear(); // This might remove more than it should
+        //addressableAssetCache.Clear(); // This might remove more than it should
         Resources.UnloadUnusedAssets();
         GC.Collect();
     }
