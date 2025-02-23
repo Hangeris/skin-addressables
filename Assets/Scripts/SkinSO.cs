@@ -1,17 +1,13 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
-public class SkinSO : ScriptableObject
+public abstract class SkinSO : ScriptableObject
 {
-    [SerializeField] AssetReferenceGameObject prefab;
-    [SerializeField] List<AssetReferenceT<Material>> materials;
-
-    public virtual SkinCategory SkinCategory => SkinCategory.None;
-    public AssetReferenceGameObject Prefab => prefab;
+    [SerializeField] SkinCategory skinCategory;
     
-    public bool IsSameSkin(SkinSO other)
-    {
-        return other != null && other.Prefab.RuntimeKeyIsValid() && Prefab.RuntimeKeyIsValid() && other.Prefab.RuntimeKey == Prefab.RuntimeKey;
-    }
+    public SkinCategory SkinCategory => skinCategory;
+
+    public abstract string RuntimeKey { get; }
+    public abstract bool IsSameCategory(SkinSO other); 
+    public abstract bool IsSameSkin(SkinSO other);
+    // public abstract UniTask<bool> TryApplySkin(AddressableAssetManager assetManager); // This should get AddressablesManager, Car references
 }

@@ -9,16 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fccb498bfd94b21a9aca8fca7c38ff7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d74bdc820e643fb9914f624855d9bf1, type: 3}
   m_Name: S_Wheel_04
   m_EditorClassIdentifier: 
-  prefab:
+  skinCategory: 8
+  prefabRef:
     m_AssetGUID: 522f90b49d1e64c4380ced04c0ff55d9
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_EditorAssetChanged: 0
-  materials:
-  - m_AssetGUID: 0779b1e8408f5134399bd4d5674fd304
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
