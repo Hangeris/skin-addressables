@@ -20,10 +20,10 @@ public class AddressableAssetLoader : IAddressableAssetLoader
             Debug.LogError($"AddressableAssetLoader.LoadAssetAsync Cached asset is null: {key}");
             addressableAssetCache.Remove(key);
         }
-
+        
         var handle = Addressables.LoadAssetAsync<T>(key);
         await handle.ToUniTask();
-
+        
         if (handle.Status == AsyncOperationStatus.Succeeded)
         {
             addressableAssetCache.Add(key, handle.Result);

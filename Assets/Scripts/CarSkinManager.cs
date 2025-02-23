@@ -1,11 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class CarSkinManager : MonoBehaviour
 {
-    [SerializeField] IRef<ISkinHandler> bathHandler;
-    [SerializeField] IRef<ISkinHandler> wheelHandler;
-    // ISkinHandler characterHandler = new CharacterSkinHandler();
-    // ISkinHandler parachuteHandler = new ParachuteSkinHandler();
+    [SerializeField] List<IRef<ISkinHandler>> skinHandlers;
     
     AddressableAssetManager assetManager;
     
@@ -28,45 +26,25 @@ public class CarSkinManager : MonoBehaviour
             return;
         }
 
-        switch (skinSO.SkinCategory)
+        var handler = skinHandlers.Find(s => s.Value.SkinCategory == skinSO.SkinCategory);
+        if (handler == null)
         {
-            case SkinCategory.Bath:
-                bathHandler.Value.ApplySkin(assetManager, skinSO, this);
-                break;
-            case SkinCategory.Wheels:
-                wheelHandler.Value.ApplySkin(assetManager, skinSO, this);
-                break;
-            // case SkinCategory.Character:
-            //     characterHandler.ApplySkin(assetManager, skinSO, this);
-            //     break;
-            // case SkinCategory.Parachute:
-            //     parachuteHandler.ApplySkin(assetManager, skinSO, this);
-            //     break;
-            default:
-                Debug.LogError($"{ToString()}.ApplySkin: Invalid skin category '{skinSO.SkinCategory}'");
-                break;
+            Debug.LogError($"{ToString()}.ApplySkin: Skin handler not found for category '{skinSO.SkinCategory}'");
+            return;
         }
+        
+        handler.Value.ApplySkin(assetManager, skinSO, this);
     }
     
     public void UnloadSkin(SkinCategory skinCategory)
     {
-        switch (skinCategory)
+        var handler = skinHandlers.Find(s => s.Value.SkinCategory == skinCategory);
+        if (handler == null)
         {
-            case SkinCategory.Bath:
-                bathHandler.Value.UnloadSkin(assetManager);
-                break;
-            case SkinCategory.Wheels:
-                wheelHandler.Value.UnloadSkin(assetManager);
-                break;
-            // case SkinCategory.Character:
-            //     characterHandler.UnloadSkin(assetManager);
-            //     break;
-            // case SkinCategory.Parachute:
-            //     parachuteHandler.UnloadSkin(assetManager);
-            //     break;
-            default:
-                Debug.LogError($"{ToString()}.UnloadSkin: Invalid skin category '{skinCategory}'");
-                break;
+            Debug.LogError($"{ToString()}.UnloadSkin: Skin handler not found for category '{skinCategory}'");
+            return;
         }
+        
+        handler.Value.UnloadLoadedSkin(assetManager);
     }
 }

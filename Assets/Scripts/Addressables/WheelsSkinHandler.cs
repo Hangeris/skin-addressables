@@ -6,6 +6,7 @@ public class WheelsSkinHandler : MonoBehaviour, ISkinHandler
 {
     [SerializeField] List<Transform> spawnPointsT;
 
+    public SkinCategory SkinCategory => SkinCategory.Wheels;
     public SkinSO LoadedSkinSO { get; set; }
 
     public async UniTask ApplySkin(AddressableAssetManager assetManager, SkinSO skinSO, CarSkinManager carSkinManager)
@@ -22,17 +23,16 @@ public class WheelsSkinHandler : MonoBehaviour, ISkinHandler
             return;
         }
 
-        // TODO; probably remove previously loaded wheels in WheelsSkinHandler
+        UnloadLoadedSkin(assetManager);
+        
         var wheelsPrefab = await assetManager.GetAssetAsync<GameObject>(gameObjectSkinSo.prefabRef.AssetGUID);
         foreach (var spawnPointT in spawnPointsT)
         {
-            var wheelsInstance = Instantiate(wheelsPrefab, spawnPointT);
+            Instantiate(wheelsPrefab, spawnPointT);
         }
-        
-        // Apply wheels skin logic
     }
 
-    public void UnloadSkin(AddressableAssetManager assetManager)
+    public void UnloadLoadedSkin(AddressableAssetManager assetManager)
     {
         DestroyGOs();
         

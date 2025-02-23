@@ -30,6 +30,8 @@ public class CanvasManager : MonoBehaviour
         initiliazer.CarSkinManager.UnloadSkin(SkinCategory.Bath);
         // skinLoader.UnloadSkin(SkinCategory.Bath);
     }
+    
+    
     public void UnloadWheel()
     {
         initiliazer.CarSkinManager.UnloadSkin(SkinCategory.Wheels);

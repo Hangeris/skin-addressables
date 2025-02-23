@@ -4,7 +4,8 @@ using UnityEngine;
 public class BathHandler : MonoBehaviour, ISkinHandler
 {
     [SerializeField] Transform spawnPointT;
-
+    
+    public SkinCategory SkinCategory => SkinCategory.Bath;
     public SkinSO LoadedSkinSO { get; set; }
 
     public async UniTask ApplySkin(AddressableAssetManager assetManager, SkinSO skinSO, CarSkinManager carSkinManager)
@@ -20,20 +21,16 @@ public class BathHandler : MonoBehaviour, ISkinHandler
             Debug.LogError($"{ToString()}.ApplySkin: Invalid skin type '{skinSO.GetType()}' or category '{skinSO.SkinCategory}'");
             return;
         }
-        
 
-        DestroyGOs();
+        UnloadLoadedSkin(assetManager);
 
         LoadedSkinSO = skinSO;
         
         var bathPrefab = await assetManager.GetAssetAsync<GameObject>(gameObjectSkinSo.prefabRef.AssetGUID);  // TODO: check if this is key is valid
         var bathInstance = Instantiate(bathPrefab, spawnPointT);
-        
-        // TODO: probably unload previously loaded bath in BathHandler
-        //carSkinManager.SetupNewBath(skinSO, bathPrefab);
     }
 
-    public void UnloadSkin(AddressableAssetManager assetManager)
+    public void UnloadLoadedSkin(AddressableAssetManager assetManager)
     {
         DestroyGOs();
         
